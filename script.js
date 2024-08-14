@@ -1,6 +1,8 @@
-let firstNumber;
-let operator;
-let lastNumber;
+let firstNumber = "";
+let operator = "";
+let lastNumber = "";
+const button = document.querySelector("button");
+const display = document.querySelector("#display");
 
 function sum(a, b) {
   return a + b;
@@ -18,14 +20,17 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(firstNumber, operator, secondNumber) {
-  if (operator === "+") {
-    return sum(firstNumber, secondNumber);
-  } else if (operator === "-") {
-    return subtract(firstNumber, secondNumber);
-  } else if (operator === "*") {
-    return multiply(firstNumber, secondNumber);
-  } else if (operator === "/") {
-    return divide(firstNumber, secondNumber);
+function operate(operator, a, b) {
+  switch (operator) {
+    case "+":
+      return add(a, b);
+    case "-":
+      return subtract(a, b);
+    case "*":
+      return multiply(a, b);
+    case "/":
+      return divide(a, b);
+    default:
+      return null;
   }
 }
