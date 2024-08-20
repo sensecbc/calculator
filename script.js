@@ -1,9 +1,9 @@
 let firstNumber = "";
 let operator = "";
 let lastNumber = "";
-const button = document.querySelector("button");
-const display = document.querySelector("#display");
-const calculator = document.querySelector("#calculator");
+let display = document.querySelector("#display");
+const numbers = document.querySelectorAll(".number");
+display.textContent = "";
 
 function sum(a, b) {
   return a + b;
@@ -36,19 +36,10 @@ function operate(operator, a, b) {
   }
 }
 
-document.querySelectorAll("button").forEach(buttao);
-
-function buttao() {
-  button.addEventListener("click", (event) => {
-    let buttonText = event.target.innerText;
-    let buttonClass = event.target.className;
-
-    if (buttonClass == "number") {
-      if (firstNumber && !operator) {
-        operator = display.textContent;
-        display.textContent = "";
-      }
-      display.textContent += buttonText;
-    }
-  });
-}
+numbers.forEach((button) =>
+  button.addEventListener("click", (e) => {
+    let inputDigit = e.target.innerText;
+    console.log(inputDigit);
+    display.textContent += inputDigit;
+  })
+);
